@@ -55,7 +55,7 @@
   }
 
   /* Highlight the current section in the nav */
-  var sections = ['about', 'programs', 'live', 'contact']
+  var sections = ['about', 'programs', 'procurement', 'live', 'contact']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 
