@@ -3,6 +3,35 @@
    Brand: main blue #3D5E9D / point green #4AB669
    ============================================================ */
 
+@font-face{
+  font-family:'Noto Sans KR';
+  font-style:normal;
+  font-weight:400;
+  font-display:swap;
+  src:url('assets/fonts/NotoSansKR-400.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Noto Sans KR';
+  font-style:normal;
+  font-weight:500;
+  font-display:swap;
+  src:url('assets/fonts/NotoSansKR-500.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Noto Sans KR';
+  font-style:normal;
+  font-weight:700;
+  font-display:swap;
+  src:url('assets/fonts/NotoSansKR-700.woff2') format('woff2');
+}
+@font-face{
+  font-family:'Noto Sans KR';
+  font-style:normal;
+  font-weight:900;
+  font-display:swap;
+  src:url('assets/fonts/NotoSansKR-900.woff2') format('woff2');
+}
+
 :root{
   --blue:#3D5E9D;
   --blue-dark:#2E4A80;
