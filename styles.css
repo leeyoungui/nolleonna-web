@@ -358,6 +358,7 @@ h3 .en{
   font-size:11.5px;font-weight:900;letter-spacing:.16em;color:var(--green-dark);
 }
 .group-head h3{font-size:21px;font-weight:900;letter-spacing:-.03em;}
+.program-grid + .group-head{margin-top:56px;}
 
 /* Wide program — AI Creator Lab */
 .program-wide{
@@ -366,7 +367,7 @@ h3 .en{
   transition:box-shadow .25s ease;
 }
 .program-wide:hover{box-shadow:var(--shadow);}
-.pw-head{display:grid;grid-template-columns:1.45fr .55fr;gap:34px;align-items:start;margin-bottom:28px;}
+.pw-head{display:grid;grid-template-columns:1fr auto;gap:34px;align-items:start;margin-bottom:28px;}
 .pw-label{font-size:11.5px;font-weight:900;letter-spacing:.16em;color:var(--blue);margin-bottom:10px;}
 .program-wide h3{font-size:21px;font-weight:700;letter-spacing:-.025em;line-height:1.45;margin-bottom:12px;}
 .pw-head p:not(.pw-label){font-size:14.8px;color:var(--muted);line-height:1.85;}
@@ -515,7 +516,7 @@ h3 .en{
   padding:60px 56px 56px;
 }
 .proc-panel .section-head{margin-bottom:36px;}
-.proc-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px;}
+.proc-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px;align-items:start;}
 .proc-card{
   display:flex;flex-direction:column;
   background:#fff;border:1px solid var(--line);border-radius:20px;

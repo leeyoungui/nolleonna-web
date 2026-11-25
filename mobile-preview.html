@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>모바일 화면 확인용 (임시)</title>
+<style>
+  html{scroll-behavior:auto;}
+  body{margin:0;background:#fff;}
+  iframe{display:block;border:0;width:414px;height:900px;}
+</style>
+</head>
+<body>
+<iframe id="vp" src="./index.html" title="모바일 미리보기"></iframe>
+<script>
+(function () {
+  var f = document.getElementById('vp');
+  function fit() {
+    try {
+      var d = f.contentDocument;
+      if (!d) return;
+      d.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+      var h = Math.max(d.documentElement.scrollHeight, d.body.scrollHeight);
+      f.style.height = h + 'px';
+    } catch (e) {}
+  }
+  f.addEventListener('load', function () { fit(); setTimeout(fit, 500); setTimeout(fit, 1500); });
+})();
+</script>
+</body>
+</html>
