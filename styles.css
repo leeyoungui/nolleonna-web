@@ -295,7 +295,7 @@ h3 .en{
   background:#F1F5FB;border-radius:8px;padding:5px 11px;
 }
 
-/* Featured program — ONNA AI Project Lab */
+/* Featured program — 이음장터 등록 상품 ONNA 찾아가는 AI·SW 프로젝트 교육 */
 .program-featured{
   position:relative;overflow:hidden;
   background:linear-gradient(145deg,#14264A 0%,#1B3765 52%,#234A80 100%);
@@ -334,6 +334,7 @@ h3 .en{
 }
 .fp-flow span{font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--green);}
 .fp-flow b{font-size:13.6px;font-weight:700;color:#EAF1FB;line-height:1.5;}
+.fp-flow li:last-child:nth-child(odd){grid-column:1 / -1;}
 .fp-spec{
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
   border-radius:18px;padding:24px 24px 22px;
