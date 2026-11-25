@@ -215,6 +215,7 @@ strong{font-weight:700;}
 
 /* ---------- Sections ---------- */
 .section{padding:104px 0;}
+section[id]{scroll-margin-top:92px;}
 .section-tint{background:var(--tint);}
 .section-head{max-width:720px;margin:0 auto 56px;text-align:center;}
 .eyebrow{
@@ -432,7 +433,7 @@ strong{font-weight:700;}
   display:grid;grid-template-columns:1fr 1.4fr;gap:40px;
   padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.09);
 }
-.footer-logo{height:30px;width:auto;margin-bottom:16px;filter:brightness(0) invert(1);opacity:.9;}
+.footer-logo{height:32px;width:auto;margin-bottom:16px;filter:brightness(0) invert(1);opacity:1;}
 .footer-brand p{line-height:1.8;color:#8497B4;}
 .footer-info{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;align-content:start;}
 .footer-info p{display:flex;gap:10px;line-height:1.9;color:#B3C2D8;font-size:13.2px;}
