@@ -174,6 +174,7 @@ strong{font-weight:700;}
   -webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent;
 }
+.m-br{display:none;}
 .hero-sub{
   font-size:clamp(15px,1.35vw,17.5px);
   color:#B9C7DE;
@@ -438,7 +439,7 @@ section[id]{scroll-margin-top:92px;}
 .footer-info{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;align-content:start;}
 .footer-info p{display:flex;gap:10px;line-height:1.9;color:#B3C2D8;font-size:13.2px;}
 .footer-info span{flex:0 0 92px;color:#6E82A2;}
-.footer-bottom{padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-bottom{padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
 .footer-bottom p{font-size:12.5px;color:#697D9C;letter-spacing:.01em;}
 
 /* ---------- Reveal ---------- */
@@ -491,6 +492,7 @@ section[id]{scroll-margin-top:92px;}
   .hero{padding:60px 0 62px;}
   .hero-badge{font-size:12px;padding:6px 13px;margin-bottom:24px;}
   .hero-title{line-height:1.32;}
+  .m-br{display:block;}
   .hero-sub br{display:none;}
   .hero-actions{flex-direction:column;}
   .hero-actions .btn{width:100%;}
