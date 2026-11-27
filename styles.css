@@ -854,3 +854,143 @@ h3 .en{
   .lb-caption{padding:16px 16px 18px;}
   .lb-nav{margin-left:0;width:100%;justify-content:space-between;}
 }
+
+/* ============================================================
+   Program compare strip · audience filter · free/paid badges
+   ============================================================ */
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px;}
+.compare-card{
+  display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--line);border-radius:18px;
+  padding:24px 24px 20px;
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.compare-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm);border-color:#D3DEEC;}
+.compare-card.is-free{border-top:3px solid var(--green);}
+.compare-card.is-procure{border-top:3px solid var(--blue);}
+.compare-card.is-paid{border-top:3px solid var(--blue-deep);}
+.compare-tag{font-size:11.5px;font-weight:900;letter-spacing:.06em;color:var(--muted);margin-bottom:9px;}
+.compare-card.is-free .compare-tag{color:var(--green-dark);}
+.compare-card.is-procure .compare-tag{color:var(--blue);}
+.compare-card.is-paid .compare-tag{color:var(--blue-deep);}
+.compare-card h3{font-size:17px;font-weight:900;letter-spacing:-.02em;margin:0 0 6px;}
+.compare-price{font-size:13.4px;color:#41536F;line-height:1.6;margin-bottom:14px;}
+.compare-price strong{font-size:15.5px;color:var(--ink);}
+.compare-list{display:grid;gap:6px;margin:0 0 16px;}
+.compare-list li{position:relative;padding-left:14px;font-size:12.8px;color:var(--muted);line-height:1.6;}
+.compare-list li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#C3D2E6;}
+.compare-go{margin-top:auto;font-size:12.8px;font-weight:700;color:var(--blue);}
+
+.program-filter{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 34px;}
+.pf-label{font-size:12px;font-weight:900;letter-spacing:.1em;color:var(--muted);}
+.pf-buttons{display:flex;gap:8px;flex-wrap:wrap;}
+.pf-btn{
+  font-family:var(--font);font-size:13.4px;font-weight:500;color:#41536F;
+  background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:9px 16px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.pf-btn:hover{border-color:#C7D6EA;color:var(--blue);}
+.pf-btn[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700;}
+.pf-btn[aria-pressed="true"] .pf-n{background:rgba(255,255,255,.22);color:#fff;}
+.pf-n{
+  font-size:11.4px;font-weight:700;color:var(--muted);line-height:1.5;
+  background:#F1F5FB;border-radius:999px;padding:1px 7px;min-width:20px;text-align:center;
+}
+.pf-count{margin-left:auto;font-size:13px;color:var(--muted);}
+.pf-count[hidden]{display:none;}
+.is-filtered-out{display:none !important;}
+.program-list .program-group + .program-group{margin-top:56px;}
+.program-empty{
+  margin:26px 0 0;padding:34px 24px;text-align:center;
+  font-size:14px;color:var(--muted);line-height:1.7;
+  background:#fff;border:1px dashed #D3DEEC;border-radius:18px;
+}
+.program-empty[hidden]{display:none;}
+
+.p-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font);font-size:11.8px;font-weight:700;letter-spacing:.01em;
+  border-radius:999px;padding:5px 12px;border:1px solid transparent;
+  margin-bottom:14px;
+}
+.p-badge.is-free{color:#22693B;background:rgba(74,182,105,.13);border-color:rgba(74,182,105,.34);}
+.p-badge.is-procure{color:var(--blue-dark);background:rgba(61,94,157,.1);border-color:rgba(61,94,157,.26);}
+.p-badge.is-paid{color:#fff;background:var(--blue-deep);border-color:var(--blue-deep);}
+.p-badge.is-neutral{color:#41536F;background:#F1F5FB;border-color:#DCE5F2;}
+.program-card .p-badge{position:absolute;top:24px;right:24px;margin:0;}
+.program-card.is-wide{grid-column:1 / -1;}
+.card-meta{
+  margin:18px 0 0 !important;padding-top:12px;border-top:1px dashed #E1E8F2;
+  font-size:12.4px !important;color:#5C6C85 !important;line-height:1.65;
+}
+.fp-badges{display:flex;flex-wrap:wrap;gap:8px;}
+.fp-badges .fp-badge{margin-bottom:18px;}
+.fp-badge.is-price{color:#fff;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);}
+.fp-badge.is-price::before{background:#FFD066;}
+
+/* 폴리텍 88시간 검증 과정 */
+.poly-split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;}
+.poly-mod{background:#F8FAFD;border:1px solid #E7EEF8;border-radius:16px;padding:20px 22px;}
+.poly-mod-head{
+  display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;
+  font-size:14.6px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin:0 0 12px;
+}
+.poly-mod-head span{
+  font-size:11.8px;font-weight:900;color:var(--blue);
+  background:rgba(61,94,157,.1);border-radius:7px;padding:2px 8px;
+}
+.poly-list{display:grid;gap:7px;}
+.poly-list li{position:relative;padding-left:16px;font-size:13.2px;color:#41536F;line-height:1.6;}
+.poly-list li::before{
+  content:"";position:absolute;left:0;top:8px;width:6px;height:6px;
+  border-radius:2px;background:var(--green);transform:rotate(45deg);
+}
+.poly-meta{
+  display:flex;flex-wrap:wrap;gap:8px 22px;
+  padding-top:14px;border-top:1px dashed #E1E8F2;
+  font-size:12.6px;color:var(--muted);line-height:1.6;
+}
+.poly-meta b{color:var(--ink);font-weight:700;margin-right:6px;}
+.poly-actions{margin-top:18px;}
+
+/* 안내문 PDF 다운로드 */
+.doc-download{
+  margin-top:52px;background:#fff;border:1px solid var(--line);border-radius:22px;
+  padding:34px 34px 30px;
+}
+.doc-head h3{font-size:19px;font-weight:900;letter-spacing:-.025em;margin:6px 0 10px;}
+.doc-head p{font-size:13.8px;color:var(--muted);line-height:1.8;max-width:820px;}
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 16px;}
+.doc-card{
+  display:flex;flex-direction:column;gap:6px;
+  background:#F8FAFD;border:1px solid #E7EEF8;border-radius:16px;padding:20px 22px;
+  transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.doc-card:hover{border-color:#C9D8EC;box-shadow:var(--shadow-sm);transform:translateY(-3px);}
+.doc-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px;}
+.doc-tag{font-size:11.5px;font-weight:900;letter-spacing:.04em;color:var(--green-dark);}
+.doc-card h4{font-size:15px;font-weight:700;letter-spacing:-.02em;line-height:1.5;margin:0;}
+.doc-card p{font-size:12.8px;color:var(--muted);line-height:1.65;}
+.doc-go{margin-top:auto;padding-top:10px;font-size:13px;font-weight:700;color:var(--blue);}
+.doc-note{font-size:12.4px;color:var(--muted);line-height:1.75;}
+
+@media (max-width:960px){
+  .compare{grid-template-columns:1fr 1fr;}
+  .compare-card:first-child{grid-column:1 / -1;}
+  .doc-grid{grid-template-columns:1fr;}
+  .pf-count{margin-left:0;flex-basis:100%;}
+}
+@media (max-width:820px){
+  .poly-split{grid-template-columns:1fr;}
+}
+@media (max-width:560px){
+  .compare{grid-template-columns:1fr;}
+  .compare-card:first-child{grid-column:auto;}
+  .program-filter{gap:10px;margin-bottom:26px;}
+  .pf-btn{font-size:12.8px;padding:8px 13px;}
+  .program-card .p-badge{position:static;margin-bottom:14px;}
+  .doc-download{padding:26px 20px 22px;border-radius:18px;}
+  .doc-card{padding:18px 18px;}
+}

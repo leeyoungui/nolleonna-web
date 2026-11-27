@@ -27,7 +27,7 @@
 <meta name="theme-color" content="#3D5E9D">
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/NotoSansKR-400.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/NotoSansKR-900.woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=20261127">
+<link rel="stylesheet" href="styles.css?v=20261127-2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -154,166 +154,346 @@
       <div class="section-head reveal">
         <p class="eyebrow">PROGRAMS</p>
         <h2>교실에서 완성하는 온나에듀랩의 수업</h2>
-        <p class="lead">학생 프로젝트부터 교사 연수, 성인·기관 과정까지. 대상과 목적에 맞춰 설계해 학교로 찾아갑니다.</p>
+        <p class="lead">
+          무료 진로체험부터 조달청 이음장터 등록 상품, 학교·기관 예산에 맞춘 유료 출강까지.<br class="br-m">
+          대상과 예산에 맞춰 고르고 그대로 신청하실 수 있습니다.
+        </p>
       </div>
 
-      <!-- Featured: 이음장터 등록 상품 ONNA 찾아가는 AI·SW 프로젝트 교육 -->
-      <article class="program-featured reveal">
-        <p class="fp-badge">조달청 이음장터 등록 · 202610070002</p>
-        <h3>ONNA 찾아가는 AI·SW 프로젝트 교육</h3>
-        <p class="fp-sub">ONNA EDULAB 표준 프로젝트 · ONNA AI Project Lab 웹앱 연계 · 초·중학생 8차시 방문형 수업</p>
+      <!-- 무료 · 유료 한눈 비교 -->
+      <div class="compare reveal">
+        <a class="compare-card is-free" href="#pick-free" data-reset-filter>
+          <p class="compare-tag">꿈길 무료 진로체험</p>
+          <h3>2차시 집중 체험</h3>
+          <p class="compare-price"><strong>학교 예산 0원</strong> · 초·중등 무료</p>
+          <ul class="compare-list">
+            <li>교육부 꿈길 등록 · 교육기부</li>
+            <li>1학급 25명 내외 · 학교 방문형</li>
+            <li>AI 캐릭터 · 마이크로비트 · 엔트리</li>
+          </ul>
+          <span class="compare-go">무료 프로그램 보기 →</span>
+        </a>
+        <a class="compare-card is-procure" href="#pick-procure" data-reset-filter>
+          <p class="compare-tag">조달청 이음장터</p>
+          <h3>8차시 프로젝트 교육</h3>
+          <p class="compare-price"><strong>990,000원</strong> · 부가세 포함</p>
+          <ul class="compare-list">
+            <li>8차시 × 45~50분</li>
+            <li>초·중학생 최대 20명</li>
+            <li>등록번호 202610070002 · 부산·경남</li>
+          </ul>
+          <span class="compare-go">등록 상품 보기 →</span>
+        </a>
+        <a class="compare-card is-paid" href="#pick-paid" data-reset-filter>
+          <p class="compare-tag">맞춤 유료 출강</p>
+          <h3>학교·기관 예산 협의</h3>
+          <p class="compare-price"><strong>차시·인원에 맞춘 견적</strong></p>
+          <ul class="compare-list">
+            <li>고3 AI 실전 툴킷 (수능 이후)</li>
+            <li>성인·기관 AI 마케팅 (폴리텍 88시간형)</li>
+            <li>교사 AI 연수 · 기관 특강</li>
+          </ul>
+          <span class="compare-go">유료 과정 보기 →</span>
+        </a>
+      </div>
 
-        <div class="fp-body">
-          <div class="fp-copy">
-            <p>
-              초·중학생이 생활·학교·지역의 문제를 발견하고, 정보와 데이터를 탐구한 뒤 AI·SW와 디지털 도구로
-              해결 결과물을 만드는 찾아가는 프로젝트형 교육서비스입니다. ONNA EDULAB 표준 교육과정과
-              ONNA AI Project Lab 웹앱을 기반으로 전문강사 1명이 기관을 방문해 8차시를 운영하며,
-              교육과정·강의자료·학생 활동자료·디지털 학습도구·프로젝트 운영이 포함됩니다.
-              AI 답을 그대로 받아쓰지 않고 탐구하고 검토해 자기 결과물로 완성하는 과정을 수업의 중심에 둡니다.
-            </p>
-            <ol class="fp-flow">
-              <li><span>01</span><b>문제 발견</b></li>
-              <li><span>02</span><b>탐구</b></li>
-              <li><span>03</span><b>해결 아이디어 구상</b></li>
-              <li><span>04</span><b>AI·SW 활용</b></li>
-              <li><span>05</span><b>결과물 제작</b></li>
-              <li><span>06</span><b>점검·개선</b></li>
-              <li><span>07</span><b>발표·공유</b></li>
-            </ol>
+      <!-- 대상별 빠른 필터 -->
+      <div class="program-filter reveal" id="programFilter">
+        <p class="pf-label">대상별 빠른 찾기</p>
+        <div class="pf-buttons" role="group" aria-label="대상별 프로그램 필터">
+          <button type="button" class="pf-btn" data-filter="all" data-label="전체" aria-pressed="true">전체</button>
+          <button type="button" class="pf-btn" data-filter="초등" data-label="초등" aria-pressed="false">초등</button>
+          <button type="button" class="pf-btn" data-filter="중등" data-label="중등" aria-pressed="false">중등</button>
+          <button type="button" class="pf-btn" data-filter="고등" data-label="고등" aria-pressed="false">고등</button>
+          <button type="button" class="pf-btn" data-filter="성인·기관" data-label="성인·기관" aria-pressed="false">성인·기관</button>
+          <button type="button" class="pf-btn" data-filter="조달" data-label="조달" aria-pressed="false">조달</button>
+        </div>
+        <p class="pf-count" id="programCount" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="program-list" id="programList">
+
+        <!-- Featured: 이음장터 등록 상품 ONNA 찾아가는 AI·SW 프로젝트 교육 -->
+        <article class="program-featured reveal" id="pick-procure" data-audience="조달 초등 중등">
+          <div class="fp-badges">
+            <p class="fp-badge">조달청 이음장터 등록 · 202610070002</p>
+            <p class="fp-badge is-price">이음장터 · 99만 원 (부가세 포함)</p>
           </div>
+          <h3>ONNA 찾아가는 AI·SW 프로젝트 교육</h3>
+          <p class="fp-sub">ONNA EDULAB 표준 프로젝트 · ONNA AI Project Lab 웹앱 연계 · 초·중학생 8차시 방문형 수업</p>
 
-          <div class="fp-spec">
-            <dl>
-              <div><dt>카테고리</dt><dd>교육훈련 &gt; 정보화교육</dd></div>
-              <div><dt>교육대상</dt><dd>초·중학생 최대 20명 · 전문강사 1명 방문</dd></div>
-              <div><dt>교육시간</dt><dd>8차시 × 45~50분</dd></div>
-              <div><dt>공급지역</dt><dd>부산·경남</dd></div>
-              <div><dt>서비스 가격</dt><dd>990,000원 (부가세포함)</dd></div>
-              <div><dt>제공내용</dt><dd>교육과정, 강의자료, 학생 활동자료, 디지털 학습도구, 프로젝트 운영</dd></div>
-              <div><dt>기관준비</dt><dd>교육장소, PC·태블릿 및 인터넷 등 기본 교육환경</dd></div>
-              <div><dt>유효기간</dt><dd>2026.10.15 ~ 2027.10.14</dd></div>
-            </dl>
-            <div class="fp-actions">
-              <a class="btn btn-primary" href="https://service.g2b.go.kr:8056/mk/srvce/selectSrvceDtl.do?eumsrvcNo=202610070002&amp;eumsrvcDivCd=0003&amp;untyAtchFileNo=202610015330" target="_blank" rel="noopener noreferrer">이음장터 상품 보기</a>
-              <a class="btn btn-ghost" href="https://onna-ai-project-lab.netlify.app/" target="_blank" rel="noopener noreferrer">상품 웹앱 보기</a>
+          <div class="fp-body">
+            <div class="fp-copy">
+              <p>
+                초·중학생이 생활·학교·지역의 문제를 발견하고, 정보와 데이터를 탐구한 뒤 AI·SW와 디지털 도구로
+                해결 결과물을 만드는 찾아가는 프로젝트형 교육서비스입니다. ONNA EDULAB 표준 교육과정과
+                ONNA AI Project Lab 웹앱을 기반으로 전문강사 1명이 기관을 방문해 8차시를 운영하며,
+                교육과정·강의자료·학생 활동자료·디지털 학습도구·프로젝트 운영이 포함됩니다.
+                AI 답을 그대로 받아쓰지 않고 탐구하고 검토해 자기 결과물로 완성하는 과정을 수업의 중심에 둡니다.
+              </p>
+              <ol class="fp-flow">
+                <li><span>01</span><b>문제 발견</b></li>
+                <li><span>02</span><b>탐구</b></li>
+                <li><span>03</span><b>해결 아이디어 구상</b></li>
+                <li><span>04</span><b>AI·SW 활용</b></li>
+                <li><span>05</span><b>결과물 제작</b></li>
+                <li><span>06</span><b>점검·개선</b></li>
+                <li><span>07</span><b>발표·공유</b></li>
+              </ol>
+            </div>
+
+            <div class="fp-spec">
+              <dl>
+                <div><dt>카테고리</dt><dd>교육훈련 &gt; 정보화교육</dd></div>
+                <div><dt>교육대상</dt><dd>초·중학생 최대 20명 · 전문강사 1명 방문</dd></div>
+                <div><dt>교육시간</dt><dd>8차시 × 45~50분</dd></div>
+                <div><dt>공급지역</dt><dd>부산·경남</dd></div>
+                <div><dt>서비스 가격</dt><dd>990,000원 (부가세포함)</dd></div>
+                <div><dt>제공내용</dt><dd>교육과정, 강의자료, 학생 활동자료, 디지털 학습도구, 프로젝트 운영</dd></div>
+                <div><dt>기관준비</dt><dd>교육장소, PC·태블릿 및 인터넷 등 기본 교육환경</dd></div>
+                <div><dt>유효기간</dt><dd>2026.10.15 ~ 2027.10.14</dd></div>
+              </dl>
+              <div class="fp-actions">
+                <a class="btn btn-primary" href="https://service.g2b.go.kr:8056/mk/srvce/selectSrvceDtl.do?eumsrvcNo=202610070002&amp;eumsrvcDivCd=0003&amp;untyAtchFileNo=202610015330" target="_blank" rel="noopener noreferrer">이음장터 상품 보기</a>
+                <a class="btn btn-ghost" href="https://onna-ai-project-lab.netlify.app/" target="_blank" rel="noopener noreferrer">상품 웹앱 보기</a>
+              </div>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
 
-      <div class="group-head reveal">
-        <p class="group-label">FOR STUDENTS</p>
-        <h3>학생 대상 수업</h3>
+        <div class="program-group">
+          <div class="group-head reveal" id="pick-free">
+            <p class="group-label">FOR STUDENTS</p>
+            <h3>학생 대상 수업</h3>
+          </div>
+
+          <!-- AI Creator Lab -->
+          <article class="program-wide reveal" data-audience="초등 중등">
+            <div class="pw-head">
+              <div>
+                <p class="p-badge is-neutral">맞춤 출강 · 학교 협의</p>
+                <p class="pw-label">AI CREATOR LAB</p>
+                <h3>AI 크리에이터랩 <span class="en">5단계 프로젝트</span></h3>
+                <p>
+                  학생이 생활과 교과 속에서 주제를 발견하고, AI로 조사하고 기획해 웹툰·음악·영상·포스터 같은
+                  콘텐츠로 제작·발표하는 프로젝트형 수업입니다. AI 리터러시와 창의적 문제해결 역량을 함께 기르고,
+                  결과물은 QR 디지털 포트폴리오로 남깁니다.
+                </p>
+              </div>
+              <ul class="tags">
+                <li>AI 리터러시</li>
+                <li>콘텐츠 창작</li>
+                <li>프로젝트 수업</li>
+                <li>QR 포트폴리오</li>
+              </ul>
+            </div>
+
+            <ol class="pw-steps">
+              <li><span>01</span><b>주제 발견</b><em>생활·교과 속 관심 주제</em></li>
+              <li><span>02</span><b>아이디어 기획</b><em>자료 조사 · 스토리 구성</em></li>
+              <li><span>03</span><b>콘텐츠 제작</b><em>웹툰 · 음악 · 영상 · 디자인</em></li>
+              <li><span>04</span><b>발표와 공유</b><em>전시 · 발표 · 온라인 공유</em></li>
+              <li><span>05</span><b>피드백과 기록</b><em>성찰 · 포트폴리오 정리</em></li>
+            </ol>
+
+            <div class="pw-courses">
+              <div class="pw-course">
+                <p class="pw-course-tag">6차시 기본형</p>
+                <h4>짧고 집중도 높은 체험형 프로젝트</h4>
+                <p>AI 이해와 주제 탐색, 웹툰·음악·영상·포스터 제작, 발표까지 6차시로 완성합니다.</p>
+                <p class="pw-course-for"><span>추천</span>체험 수업 · 방학 프로그램 · 행사·특별 프로그램</p>
+              </div>
+              <div class="pw-course">
+                <p class="pw-course-tag is-green">10차시 심화형</p>
+                <h4>조사·기획·제작·개선을 깊이 있게</h4>
+                <p>AI 리터러시와 주제 탐구, 스토리 설계, 여러 콘텐츠 제작, 발표와 QR 포트폴리오까지 10차시로 이어 갑니다.</p>
+                <p class="pw-course-for"><span>추천</span>정규 교과 연계 · 자유학기제 · 진로체험 · 늘봄학교</p>
+              </div>
+            </div>
+          </article>
+
+          <div class="program-grid">
+            <article class="program-card reveal" data-audience="초등 중등">
+              <p class="p-badge is-free">꿈길 무료</p>
+              <div class="program-num">01</div>
+              <h3>나만의 AI 캐릭터 · 굿즈 크리에이터</h3>
+              <p>생성형 AI로 나를 닮은 캐릭터를 기획하고, 캔바로 다듬어 실물 굿즈까지 완성합니다. 프롬프트를 쓰고, 결과를 검토하고, 내 것으로 바꾸는 과정 전체를 학생이 경험합니다.</p>
+              <ul class="tags"><li>생성형 AI</li><li>캔바</li><li>캐릭터 기획</li><li>굿즈 제작</li></ul>
+              <p class="card-meta">2차시 집중 체험 · 1학급 25명 내외 · 초·중등·특수학급 · 체험비 전액 무료</p>
+            </article>
+
+            <article class="program-card reveal" data-audience="초등 중등">
+              <p class="p-badge is-free">꿈길 무료</p>
+              <div class="program-num">02</div>
+              <h3>마이크로비트 레트로 게임 개발자</h3>
+              <p>MakeCode로 마이크로비트를 코딩해 직접 플레이할 수 있는 레트로 게임을 완성합니다. 버튼과 센서가 코드로 움직이는 순간을 손에 쥔 기기로 확인합니다.</p>
+              <ul class="tags"><li>마이크로비트</li><li>MakeCode</li><li>피지컬 컴퓨팅</li><li>게임 개발</li></ul>
+              <p class="card-meta">2차시 집중 체험 · 1학급 25명 내외 · 초·중등·특수학급 · 교구 일체 강사 지참</p>
+            </article>
+
+            <article class="program-card reveal" data-audience="초등">
+              <p class="p-badge is-free">꿈길 무료</p>
+              <div class="program-num">03</div>
+              <h3>우리 동네를 지키는 <span class="en">AI·엔트리 코딩 탐험대</span></h3>
+              <p>초등 3~6학년이 엔트리 블록코딩으로 분리배출·에너지 절약 같은 우리 동네 문제를 해결하는 미니 게임을 만드는 2차시 무료 진로체험입니다. 개인 계정 로그인 없이 시작하고, 완성한 작품은 교실 스크린에서 함께 시연합니다.</p>
+              <ul class="tags"><li>엔트리</li><li>블록코딩</li><li>환경·생활 문제</li><li>초등 3~6학년</li></ul>
+              <p class="card-meta">2차시 집중 체험 · 1회 10~25명 · 부산·경남 · 체험비 전액 무료</p>
+            </article>
+
+            <article class="program-card reveal" data-audience="고등">
+              <p class="p-badge is-paid">맞춤 유료</p>
+              <div class="program-num">04</div>
+              <h3>수능 끝! 예비 대학생을 위한 <span class="en">AI 실전 툴킷</span></h3>
+              <p>수능을 마친 고3을 위한 학교 예산 맞춤 유료 출강입니다. 관심 전공 자료를 NotebookLM으로 모아 요약하고 10분 발표 슬라이드를 만들고, 스무 살의 나를 소개하는 퍼스널 브랜드까지 기획해 온나 라이브 3D 전시관에 공유합니다.</p>
+              <ul class="tags"><li>NotebookLM</li><li>AI 발표자료</li><li>퍼스널 브랜딩</li><li>고3 · 수능 이후</li></ul>
+              <p class="card-meta">3차시 130분(2차시 90분 압축) · 1회 15~30명 · 스마트폰 1인 1대 · 일정·차시·견적 협의</p>
+            </article>
+
+            <article class="program-card is-wide reveal" data-audience="초등 중등 고등">
+              <p class="p-badge is-neutral">자체 개발 수업 도구</p>
+              <div class="program-num">05</div>
+              <h3>온나 라이브 교실 <span class="en">ONNA Live</span></h3>
+              <p>온나에듀랩이 직접 개발한 실시간 교실 도구입니다. 학생은 로그인 없이 접속해 채팅·퀴즈·작품 업로드에 참여하고, 수업 결과물은 3D 메타버스 전시관에 모입니다. 위 수업 어디에나 붙여 운영할 수 있습니다.</p>
+              <ul class="tags"><li>무로그인</li><li>실시간 인터랙션</li><li>3D 전시관</li><li>자체 개발</li></ul>
+            </article>
+          </div>
+        </div>
+
+        <div class="program-group">
+          <div class="group-head reveal" id="pick-paid">
+            <p class="group-label">FOR TEACHERS &amp; ADULTS</p>
+            <h3>교사·성인 대상 과정</h3>
+          </div>
+
+          <!-- 폴리텍 88시간 검증 과정 -->
+          <article class="program-wide polytech reveal" data-audience="성인·기관">
+            <div class="pw-head">
+              <div>
+                <p class="p-badge is-paid">맞춤 유료</p>
+                <p class="pw-label">POLYTECH · 88 HOURS</p>
+                <h3>한국폴리텍대학 88시간 검증 과정 — <span class="en">AI 활용 SNS·미디어 마케팅 실무</span></h3>
+                <p>
+                  2026년 9~10월 한국폴리텍대학 창원캠퍼스 ‘미디어콘텐츠 및 마케팅’ 과정에서 실제로 설계하고 운영한
+                  88시간(2개 교과목) 커리큘럼입니다. 스마트폰과 PC로 바로 하는 실습 중심이라, 수료생은 채널별
+                  마케팅 실행 포트폴리오를 손에 들고 나옵니다. 같은 커리큘럼을 소상공인·예비창업자·지자체·기관
+                  실무자 과정으로 대상과 차시에 맞춰 운영합니다.
+                </p>
+              </div>
+              <ul class="tags">
+                <li>SNS 마케팅</li>
+                <li>AI 홍보문구</li>
+                <li>숏폼 · 블로그</li>
+                <li>스마트스토어</li>
+              </ul>
+            </div>
+
+            <div class="poly-split">
+              <div class="poly-mod">
+                <p class="poly-mod-head"><span>52시간</span> AI 활용 SNS 마케팅</p>
+                <ul class="poly-list">
+                  <li>디지털·SNS 기초 진단 및 계정 활용 점검</li>
+                  <li>내 홍보 주제 정하기 · 고객·대상 설정</li>
+                  <li>채널 생태계와 고객 동선 설계</li>
+                  <li>AI 활용 홍보문구 작성</li>
+                  <li>인스타그램·숏폼 콘텐츠 활용</li>
+                  <li>네이버 블로그 검색형 글쓰기</li>
+                  <li>콘텐츠 캘린더 작성</li>
+                </ul>
+              </div>
+              <div class="poly-mod">
+                <p class="poly-mod-head"><span>36시간</span> AI 활용 온라인 판매실습</p>
+                <ul class="poly-list">
+                  <li>온라인 판매·문의 채널 이해 · 유형별 채널 선택 전략</li>
+                  <li>스마트스토어 상품등록 기초</li>
+                  <li>당근·스마트플레이스 로컬 마케팅</li>
+                  <li>AI 활용 상세페이지·소개페이지 카피라이팅</li>
+                  <li>콘텐츠 수익화 구조 이해</li>
+                  <li>고객문의·리뷰·재방문 문구</li>
+                  <li>채널별 마케팅 실행 포트폴리오 정리</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="poly-meta">
+              <p><b>검증 실적</b> 한국폴리텍대학 창원캠퍼스 미디어콘텐츠 및 마케팅 · 2026. 9~10월</p>
+              <p><b>운영 형태</b> 1일 6교시(교시당 50분) 컴퓨터실 실습 · 기관 위탁·방문형</p>
+              <p><b>결과물</b> 채널별 마케팅 실행 포트폴리오</p>
+            </div>
+            <div class="fp-actions poly-actions">
+              <a class="btn btn-outline" href="#contact">성인·기관 과정 문의</a>
+            </div>
+          </article>
+
+          <div class="track-grid">
+            <article class="track-card reveal" data-audience="성인·기관">
+              <p class="p-badge is-neutral">교사 연수 · 학교 협의</p>
+              <p class="track-label">FOR TEACHERS</p>
+              <h3>학교 교사 AI 연수</h3>
+              <p class="track-desc">생성형 AI의 원리와 윤리를 이해하고, 교과 수업에 바로 적용하는 수업 설계 연수입니다.</p>
+              <ul class="track-list">
+                <li>생성형 AI의 원리와 교육적 활용 이해</li>
+                <li>AI 정보 검증 · 저작권 · 개인정보 교육</li>
+                <li>교과 연계 AI 프로젝트 수업 설계</li>
+                <li>수업자료 · 활동지 · 평가자료 제작</li>
+                <li>학생의 책임 있는 AI 활용 지도</li>
+              </ul>
+              <p class="track-out">결과물 · 수업지도안, 활동지, 프로젝트 수업안</p>
+            </article>
+
+            <article class="track-card reveal" data-audience="성인·기관">
+              <p class="p-badge is-paid">맞춤 유료</p>
+              <p class="track-label">FOR ADULTS</p>
+              <h3>성인·기관 실용 AI 과정</h3>
+              <p class="track-desc">일과 생활에 AI를 실제로 적용하는 법을 익히는 기관·성인 맞춤 실습 과정입니다.</p>
+              <ul class="track-list">
+                <li>생성형 AI 기초와 프롬프트 활용</li>
+                <li>문서 · 기획안 · 홍보문구 작성</li>
+                <li>이미지 · 영상 · 카드뉴스 콘텐츠 제작</li>
+                <li>업무 자료 조사와 정보 정리</li>
+                <li>개인정보 · 저작권 · AI 윤리</li>
+              </ul>
+              <p class="track-out">결과물 · 기관 특성에 맞춘 실습 자료와 결과물</p>
+            </article>
+          </div>
+        </div>
       </div>
 
-      <!-- AI Creator Lab -->
-      <article class="program-wide reveal">
-        <div class="pw-head">
-          <div>
-            <p class="pw-label">AI CREATOR LAB</p>
-            <h3>AI 크리에이터랩 <span class="en">5단계 프로젝트</span></h3>
-            <p>
-              학생이 생활과 교과 속에서 주제를 발견하고, AI로 조사하고 기획해 웹툰·음악·영상·포스터 같은
-              콘텐츠로 제작·발표하는 프로젝트형 수업입니다. AI 리터러시와 창의적 문제해결 역량을 함께 기르고,
-              결과물은 QR 디지털 포트폴리오로 남깁니다.
-            </p>
-          </div>
-          <ul class="tags">
-            <li>AI 리터러시</li>
-            <li>콘텐츠 창작</li>
-            <li>프로젝트 수업</li>
-            <li>QR 포트폴리오</li>
-          </ul>
+      <p class="program-empty" id="programEmpty" hidden>해당 대상의 프로그램이 아직 없습니다. 출강 문의로 원하시는 과정을 알려주세요.</p>
+
+      <!-- 내부 결재·공유용 안내문 PDF -->
+      <div class="doc-download reveal" id="notices">
+        <div class="doc-head">
+          <p class="group-label">DOCUMENTS</p>
+          <h3>📄 학교·기관 내부 공유용 안내문 PDF</h3>
+          <p>
+            품의·결재와 교내 공유에 바로 붙일 수 있는 A4 1쪽 안내문입니다. 2026년 11월 말 ~ 12월 말 한정
+            무료 진로체험 2차시 최신본이며, 세 안내문 모두 개인 휴대전화 번호가 들어 있지 않습니다.
+          </p>
         </div>
-
-        <ol class="pw-steps">
-          <li><span>01</span><b>주제 발견</b><em>생활·교과 속 관심 주제</em></li>
-          <li><span>02</span><b>아이디어 기획</b><em>자료 조사 · 스토리 구성</em></li>
-          <li><span>03</span><b>콘텐츠 제작</b><em>웹툰 · 음악 · 영상 · 디자인</em></li>
-          <li><span>04</span><b>발표와 공유</b><em>전시 · 발표 · 온라인 공유</em></li>
-          <li><span>05</span><b>피드백과 기록</b><em>성찰 · 포트폴리오 정리</em></li>
-        </ol>
-
-        <div class="pw-courses">
-          <div class="pw-course">
-            <p class="pw-course-tag">6차시 기본형</p>
-            <h4>짧고 집중도 높은 체험형 프로젝트</h4>
-            <p>AI 이해와 주제 탐색, 웹툰·음악·영상·포스터 제작, 발표까지 6차시로 완성합니다.</p>
-            <p class="pw-course-for"><span>추천</span>체험 수업 · 방학 프로그램 · 행사·특별 프로그램</p>
-          </div>
-          <div class="pw-course">
-            <p class="pw-course-tag is-green">10차시 심화형</p>
-            <h4>조사·기획·제작·개선을 깊이 있게</h4>
-            <p>AI 리터러시와 주제 탐구, 스토리 설계, 여러 콘텐츠 제작, 발표와 QR 포트폴리오까지 10차시로 이어 갑니다.</p>
-            <p class="pw-course-for"><span>추천</span>정규 교과 연계 · 자유학기제 · 진로체험 · 늘봄학교</p>
-          </div>
+        <div class="doc-grid">
+          <a class="doc-card" href="assets/docs/%EC%98%A8%EB%82%98%EC%97%90%EB%93%80%EB%9E%A9_AI%EC%BA%90%EB%A6%AD%ED%84%B0_%EB%AC%B4%EB%A3%8C%EC%A7%84%EB%A1%9C%EC%B2%B4%ED%97%98_%EC%95%88%EB%82%B4%EB%AC%B8.pdf" download="온나에듀랩_AI캐릭터_무료진로체험_안내문.pdf">
+            <p class="doc-tag">초·중등 · 특수학급</p>
+            <h4>나만의 AI 캐릭터 · 굿즈 크리에이터</h4>
+            <p>생성형 AI·캔바 2차시 무료 진로체험 안내문</p>
+            <span class="doc-go">PDF 내려받기 ↓</span>
+          </a>
+          <a class="doc-card" href="assets/docs/%EC%98%A8%EB%82%98%EC%97%90%EB%93%80%EB%9E%A9_%EB%A7%88%EC%9D%B4%ED%81%AC%EB%A1%9C%EB%B9%84%ED%8A%B8_%EB%AC%B4%EB%A3%8C%EC%A7%84%EB%A1%9C%EC%B2%B4%ED%97%98_%EC%95%88%EB%82%B4%EB%AC%B8.pdf" download="온나에듀랩_마이크로비트_무료진로체험_안내문.pdf">
+            <p class="doc-tag">초·중등 · 특수학급</p>
+            <h4>마이크로비트 레트로 게임 개발자</h4>
+            <p>SW 코딩·피지컬 컴퓨팅 2차시 무료 진로체험 안내문</p>
+            <span class="doc-go">PDF 내려받기 ↓</span>
+          </a>
+          <a class="doc-card" href="assets/docs/%EC%98%A8%EB%82%98%EC%97%90%EB%93%80%EB%9E%A9_%EC%B4%88%EB%93%B1%EC%BD%94%EB%94%A9_%EB%AC%B4%EB%A3%8C%EC%A7%84%EB%A1%9C%EC%B2%B4%ED%97%98_%EC%95%88%EB%82%B4%EB%AC%B8.pdf" download="온나에듀랩_초등코딩_무료진로체험_안내문.pdf">
+            <p class="doc-tag">초등 3~6학년</p>
+            <h4>우리 동네를 지키는 AI·엔트리 코딩 탐험대</h4>
+            <p>엔트리 블록코딩 2차시 무료 진로체험 안내문</p>
+            <span class="doc-go">PDF 내려받기 ↓</span>
+          </a>
         </div>
-      </article>
-
-      <div class="program-grid">
-        <article class="program-card reveal">
-          <div class="program-num">01</div>
-          <h3>나만의 AI 캐릭터 · 굿즈 크리에이터</h3>
-          <p>생성형 AI로 나를 닮은 캐릭터를 기획하고, 캔바로 다듬어 실물 굿즈까지 완성합니다. 프롬프트를 쓰고, 결과를 검토하고, 내 것으로 바꾸는 과정 전체를 학생이 경험합니다.</p>
-          <ul class="tags"><li>생성형 AI</li><li>캔바</li><li>캐릭터 기획</li><li>굿즈 제작</li></ul>
-        </article>
-
-        <article class="program-card reveal">
-          <div class="program-num">02</div>
-          <h3>마이크로비트 레트로 게임 개발자</h3>
-          <p>MakeCode로 마이크로비트를 코딩해 직접 플레이할 수 있는 레트로 게임을 완성합니다. 버튼과 센서가 코드로 움직이는 순간을 손에 쥔 기기로 확인합니다.</p>
-          <ul class="tags"><li>마이크로비트</li><li>MakeCode</li><li>피지컬 컴퓨팅</li><li>게임 개발</li></ul>
-        </article>
-
-        <article class="program-card reveal">
-          <div class="program-num">03</div>
-          <h3>온나 라이브 교실 <span class="en">ONNA Live</span></h3>
-          <p>온나에듀랩이 직접 개발한 실시간 교실 도구입니다. 학생은 로그인 없이 접속해 채팅·퀴즈·작품 업로드에 참여하고, 수업 결과물은 3D 메타버스 전시관에 모입니다.</p>
-          <ul class="tags"><li>무로그인</li><li>실시간 인터랙션</li><li>3D 전시관</li><li>자체 개발</li></ul>
-        </article>
-
-        <article class="program-card reveal">
-          <div class="program-num">04</div>
-          <h3>맞춤형 AI 활용 특강</h3>
-          <p>고3 예비 대학생을 위한 AI 실전 툴킷부터 지역사회 기관을 위한 AI 활용 특강까지, 대상과 목적에 맞춰 특강을 구성합니다.</p>
-          <ul class="tags"><li>AI 리터러시</li><li>AI 활용</li><li>진로·진학</li><li>기관 특강</li></ul>
-        </article>
-      </div>
-
-      <div class="group-head reveal">
-        <p class="group-label">FOR TEACHERS &amp; ADULTS</p>
-        <h3>교사·성인 대상 과정</h3>
-      </div>
-
-      <div class="track-grid">
-        <article class="track-card reveal">
-          <p class="track-label">FOR TEACHERS</p>
-          <h3>학교 교사 AI 연수</h3>
-          <p class="track-desc">생성형 AI의 원리와 윤리를 이해하고, 교과 수업에 바로 적용하는 수업 설계 연수입니다.</p>
-          <ul class="track-list">
-            <li>생성형 AI의 원리와 교육적 활용 이해</li>
-            <li>AI 정보 검증 · 저작권 · 개인정보 교육</li>
-            <li>교과 연계 AI 프로젝트 수업 설계</li>
-            <li>수업자료 · 활동지 · 평가자료 제작</li>
-            <li>학생의 책임 있는 AI 활용 지도</li>
-          </ul>
-          <p class="track-out">결과물 · 수업지도안, 활동지, 프로젝트 수업안</p>
-        </article>
-
-        <article class="track-card reveal">
-          <p class="track-label">FOR ADULTS</p>
-          <h3>성인·기관 실용 AI 과정</h3>
-          <p class="track-desc">일과 생활에 AI를 실제로 적용하는 법을 익히는 기관·성인 맞춤 실습 과정입니다.</p>
-          <ul class="track-list">
-            <li>생성형 AI 기초와 프롬프트 활용</li>
-            <li>문서 · 기획안 · 홍보문구 작성</li>
-            <li>이미지 · 영상 · 카드뉴스 콘텐츠 제작</li>
-            <li>업무 자료 조사와 정보 정리</li>
-            <li>개인정보 · 저작권 · AI 윤리</li>
-          </ul>
-          <p class="track-out">결과물 · 기관 특성에 맞춘 실습 자료와 결과물</p>
-        </article>
+        <p class="doc-note">
+          신청과 문의는 꿈길(ggoomgil.go.kr)에서 체험처 「놀러온나(온나에듀랩)」를 검색해 신청하시거나,
+          이 페이지의 대표전화 0502-5554-5281 · onnaedulab@gmail.com 으로 연락해 주세요.
+        </p>
       </div>
     </div>
   </section>
@@ -534,10 +714,12 @@
               <label for="inqProgram">희망 프로그램</label>
               <select id="inqProgram" name="희망 프로그램">
                 <option value="">선택해 주세요</option>
-                <option value="AI 캐릭터·굿즈 크리에이터">AI 캐릭터·굿즈 크리에이터</option>
-                <option value="마이크로비트 레트로 게임">마이크로비트 레트로 게임</option>
-                <option value="초등 AI·앤트리 코딩">초등 AI·앤트리 코딩</option>
-                <option value="고3 AI 실전 툴킷">고3 AI 실전 툴킷</option>
+                <option value="AI 캐릭터·굿즈 크리에이터 (꿈길 무료)">AI 캐릭터·굿즈 크리에이터 (꿈길 무료)</option>
+                <option value="마이크로비트 레트로 게임 (꿈길 무료)">마이크로비트 레트로 게임 (꿈길 무료)</option>
+                <option value="초등 AI·엔트리 코딩 탐험대 (꿈길 무료)">초등 AI·엔트리 코딩 탐험대 (꿈길 무료)</option>
+                <option value="조달청 이음장터 8차시 프로젝트 교육">조달청 이음장터 8차시 프로젝트 교육</option>
+                <option value="고3 AI 실전 툴킷 (맞춤 유료)">고3 AI 실전 툴킷 (맞춤 유료)</option>
+                <option value="성인·기관 AI 마케팅 (폴리텍 88시간형)">성인·기관 AI 마케팅 (폴리텍 88시간형)</option>
                 <option value="기타 맞춤형">기타 맞춤형</option>
               </select>
             </p>
@@ -613,6 +795,6 @@
   </div>
 </dialog>
 
-<script src="script.js?v=20261127"></script>
+<script src="script.js?v=20261127-2"></script>
 </body>
 </html>

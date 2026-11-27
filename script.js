@@ -275,4 +275,90 @@
       if (submitButton) submitButton.textContent = '문의 보내기';
     });
   }
+
+  /* ---------- Program audience filter ---------- */
+  var programList = document.getElementById('programList');
+  var programFilter = document.getElementById('programFilter');
+
+  if (programList && programFilter) {
+    var pfButtons = Array.prototype.slice.call(programFilter.querySelectorAll('.pf-btn'));
+    var programUnits = Array.prototype.slice.call(programList.querySelectorAll('[data-audience]'));
+    var programGroups = Array.prototype.slice.call(programList.querySelectorAll('.program-group'));
+    var programEmpty = document.getElementById('programEmpty');
+    var programCount = document.getElementById('programCount');
+
+    function audiencesOf(unit) {
+      return (unit.getAttribute('data-audience') || '').split(/\s+/).filter(Boolean);
+    }
+
+    function paintsCounts() {
+      var map = { all: programUnits.length };
+      programUnits.forEach(function (unit) {
+        audiencesOf(unit).forEach(function (key) {
+          map[key] = (map[key] || 0) + 1;
+        });
+      });
+      pfButtons.forEach(function (btn) {
+        var key = btn.getAttribute('data-filter');
+        var n = btn.querySelector('.pf-n');
+        if (!n) {
+          n = document.createElement('span');
+          n.className = 'pf-n';
+          n.setAttribute('aria-hidden', 'true');
+          btn.appendChild(n);
+        }
+        n.textContent = map[key] || 0;
+      });
+      return map;
+    }
+
+    paintsCounts();
+
+    function applyProgramFilter(key) {
+      var visible = 0;
+      programUnits.forEach(function (unit) {
+        var match = key === 'all' || audiencesOf(unit).indexOf(key) !== -1;
+        unit.classList.toggle('is-filtered-out', !match);
+        if (match) visible++;
+      });
+
+      programGroups.forEach(function (group) {
+        var hasVisible = group.querySelector('[data-audience]:not(.is-filtered-out)');
+        group.classList.toggle('is-filtered-out', !hasVisible);
+      });
+
+      pfButtons.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-filter') === key ? 'true' : 'false');
+      });
+
+      if (programEmpty) programEmpty.hidden = visible !== 0;
+
+      if (programCount) {
+        var label = '전체';
+        pfButtons.forEach(function (btn) {
+          if (btn.getAttribute('data-filter') === key) label = btn.getAttribute('data-label') || label;
+        });
+        programCount.textContent = label + ' 프로그램 ' + visible + '개';
+      }
+
+      if (key === 'all') {
+        programList.classList.remove('is-filtered');
+      } else {
+        programList.classList.add('is-filtered');
+      }
+    }
+
+    pfButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        applyProgramFilter(btn.getAttribute('data-filter'));
+      });
+    });
+
+    /* 비교 카드에서 이동할 때는 필터를 전체로 돌려 대상 카드가 보이게 한다 */
+    document.querySelectorAll('[data-reset-filter]').forEach(function (link) {
+      link.addEventListener('click', function () { applyProgramFilter('all'); });
+    });
+
+    applyProgramFilter('all');
+  }
 })();
