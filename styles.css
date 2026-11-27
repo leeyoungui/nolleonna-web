@@ -994,3 +994,6 @@ h3 .en{
   .doc-download{padding:26px 20px 22px;border-radius:18px;}
   .doc-card{padding:18px 18px;}
 }
+
+/* 건너뛰기 링크 위치 보정(고정 헤더 높이) */
+#pick-free,#pick-procure,#pick-paid,#notices{scroll-margin-top:86px;}
